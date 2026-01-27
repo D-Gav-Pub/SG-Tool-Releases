@@ -8,7 +8,7 @@ Desktop companion for law-enforcement workflows: duty automation, loadouts/unifo
 - **Loadouts & uniforms:** Manage uniforms, weapons, and loadout presets filtered by allowed roles; select them from the Duty panel.
 - **RP timing & strings:** Configure RP delays (text/transition/keystroke/start) and RP lines for clock on/off and role-specific change messaging.
 - **Hotkeys:** Configure and persist global hotkeys (desktop).
-- **Paperwork assistant:** Draft and save arrest and warrant reports (stored locally via shared_preferences) and generate forum-ready BBCode.
+- **Paperwork assistant:** Draft and save arrest, warrant, and traffic stop reports (stored locally via shared_preferences) and generate forum-ready BBCode.
 - **Heli tools:** Tail numbers, landing sites, and checklist settings.
 - **Admin:** Role management for users (admin-only section).
 - **About & updates:** Shows current version/build and checks the public releases feed (`D-Gav-Pub/SG-Tool-Releases`) for updates; links to the latest download.
@@ -21,4 +21,23 @@ Desktop companion for law-enforcement workflows: duty automation, loadouts/unifo
 3) Updates: install the newer MSIX over the existing app; settings and saved drafts are preserved (`%APPDATA%\\com.dgav.sgtool\\shared_preferences.json`).
 
 ## Changelog
-> Nothing to note currently
+### 1.0.1
+#### Reports
+- Added a GOB Traffic Stop report builder with draft saving and BBCode output.
+- Added a Gang Incident report builder with draft saving and BBCode output.
+- Added a SEB Operation report builder with draft saving and BBCode output.
+- Added draft delete functions so reports without it
+- Arrest report: DOC Sign Away shows a custody transfer memorandum preview and auto-sends DOC handover RP lines using saved officer info/timing (with long suspect lists chunked across /do lines).
+- Supervisor paperwork: new Weekly Inactivity Notices tool that lets supervisors paste weekly names, enter profile links, and step through warning/log/email BBCode with collapsible live previews and completion checkboxes.
+- Templates for warnings/logs/emails are hidden by default with an edit toggle, include the latest mandated wording, and render preview styling (colors, bullets, inline links) for quick visual checks before posting.
+
+#### Fixes
+- Changed the Heli Menu Delta Callsigns to be AIRSD-7 and AIRSD-8
+- Arrest report: sidebar actions now use a 2x2 grid (Load, Delete, Reset, DOC Sign Away) to keep labels horizontal and tidy.
+- Warrant report: sidebar load/delete/reset buttons now use the same 2x2 grid to keep labels horizontal.
+- Saved draft dropdowns now ellipsize long titles and load/delete grids wrap responsively across all report/email screens with load functions, preventing vertical label overflow.
+- /gate and /paytoll now work as intended
+
+## Notes on data retention
+- Saved drafts and preferences live in the platform app-data directory (Windows: `%APPDATA%\\com.dgav.sgtool\\shared_preferences.json`); MSIX upgrades keep this intact.
+- Avoid uninstalling with "remove app data" if you need to preserve settings.
