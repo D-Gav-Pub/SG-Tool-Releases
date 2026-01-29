@@ -56,17 +56,6 @@ Desktop companion for law-enforcement workflows: duty automation, loadouts/unifo
 - Added a military and regular clock to the home page
 - Formated the home page to evenly space the items
 
-## Release process (maintainers)
-- Bump `version:` in `pubspec.yaml`.
-- `flutter clean && flutter pub get`
-- Build Windows: `flutter build windows --release`
-- Sign/package MSIX: `dart run msix:create --release --build-windows=false`
-- Verify signature: `Get-AuthenticodeSignature build/windows/x64/runner/Release/sg_tool.msix` -> `Status: Valid`, `CN=DGav`
-- If the cert changed, re-export `windows/runner/DGav.cer` and include it in the release
-- Publish to `https://github.com/D-Gav-Pub/SG-Tool-Releases` with tag `vX.Y.Z` and attach:
-  - `sg_tool.msix`
-  - `DGav.cer` (if updated)
-  - (Optional) ZIP of `build/windows/x64/runner/Release/`
 
 ## Notes on data retention
 - Saved drafts and preferences live in the platform app-data directory (Windows: `%APPDATA%\\com.dgav.sgtool\\shared_preferences.json`); MSIX upgrades keep this intact.
